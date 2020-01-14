@@ -67,7 +67,7 @@ $(function() {
     success: function (result) {
     var result = JSON.stringify(result);
     arraydata = eval("("+result+")");
-    console.log(arraydata);
+    console.log(arraydata.data);
  }
  });
  
