@@ -73,7 +73,7 @@ $(function() {
  
   // Initialize the Gallery as video carousel:
   // eslint-disable-next-line new-cap
-  blueimp.Gallery(arraydata,
+  blueimp.Gallery(arraydata.data,
     {
       container: '#blueimp-video-carousel',
       carousel: true
