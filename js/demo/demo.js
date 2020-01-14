@@ -59,33 +59,21 @@ $(function() {
     })
   })
 
+  var arraydata;
+  $.ajax({
+    url: "http://13.56.207.99:8080/v1/cloud/geturldata",
+    async: false,//同步方式发送请求，true为异步发送
+    type: "GET",
+    success: function (result) {
+    var result = JSON.stringify(result);
+    arraydata = eval("("+result+")");
+    console.log(arraydata);
+ }
+ });
+ 
   // Initialize the Gallery as video carousel:
   // eslint-disable-next-line new-cap
-  blueimp.Gallery(
-    [
-      {
-        title: 'Sintel',
-        href: 'http://13.56.207.99:2015/videodemo/ok.mp4',
-        type: 'video/mp4',
-        poster: 'https://i.imgur.com/MUSw4Zu.jpg'
-      },
-      {
-        title: 'Big Buck Bunny',
-        href:'http://13.56.207.99:2015/videodemo/ok.mp4',
-        type: 'video/webm',
-        poster:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/' +
-          'Big_Buck_Bunny_4K.webm/4000px--Big_Buck_Bunny_4K.webm.jpg'
-      },
-      {
-        title: 'Elephants Dream',
-        href:'http://13.56.207.99:2015/videodemo/ok.mp4',
-        type: 'video/ogg',
-        poster:
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/' +
-          'Elephants_Dream_s1_proog.jpg/800px-Elephants_Dream_s1_proog.jpg'
-      }
-    ],
+  blueimp.Gallery(arraydata,
     {
       container: '#blueimp-video-carousel',
       carousel: true
